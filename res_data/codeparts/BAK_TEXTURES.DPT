@@ -1,0 +1,35 @@
+define GRASS 64 64
+define LEAVES2 128 64
+define BARK 64 128
+define LOG 64 64
+define SLIME 64 64
+define DIRT 64 64
+define BUSHES 64 64
+
+define SKYB_N 512 512
+define SKYB_E 512 512
+define SKYB_S 512 512
+define SKYB_W 512 512
+define SKYB_T 512 512
+define SKYB_B 512 512
+
+remap PS4BA0 PS4BHD
+remap XONEA0 XONEHD
+remap XBOXSELL XBSELLHD
+remap M_DOOM TITLE
+
+define i_back 512 512
+define i_front 512 512
+define i_left 512 512
+define i_right 512 512
+define i_top 512 512
+define m_back 512 512
+define m_front 512 512
+define m_left 512 512
+define m_right 512 512
+define m_top 512 512
+define n_back 512 512
+define n_front 512 512
+define n_left 512 512
+define n_right 512 512
+define n_top 512 512

@@ -1,0 +1,4 @@
+Player.ForwardMove 0.95, 0.925 
+Player.SideMove 0.95, 0.925 
+Player.JumpZ 10
+Scale 0.725

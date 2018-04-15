@@ -1,0 +1,607 @@
+// LXandro Weapons (Duke Nukem)
+
+ACTOR LXandroUnarmed : Weapon
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Obituary "%k has kicked %o's ass."
+	AttackSound "fist/hit"
+	States
+	{
+	Ready:
+		DNKN ABC 2
+		DNKN CBA 2
+		DNKN A 0 A_PlaySound("KNUCKLED")
+	RealReady:
+		TNT1 A 9 A_WeaponReady
+		Loop
+    Deselect:
+		TNT1 A 1 A_Lower
+		Loop
+	Select:
+		TNT1 A 0 A_Raise
+		Wait
+	Fire:
+		DNBT A 1 A_Jump(255,"Fire1","Fire2")
+		Goto RealReady
+	Fire1:
+		TNT1 A 1 A_SetSpeed(0.0)
+		TNT1 A 0 A_PlaySound("fist/brutalmodeswing", 4)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		DNBT A 1 offset(0,78) A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		DNBT A 1 offset(0,45) A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		DNBT A 1 A_ZoomFactor(0.95)
+		DNBT B 4 A_CustomPunch(12,0,0,"FistPuff")
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT A 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT A 1 offset(0,32) A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT A 1 offset(0,45) A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT A 1 offset(0,64) A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT A 1 offset(0,96) A_ZoomFactor(1.00)
+		TNT1 A 4
+		TNT1 A 1 A_SetSpeed(1.0)
+		Goto RealReady
+	Fire2:
+		TNT1 A 1 A_SetSpeed(0.0)
+		TNT1 A 0 A_PlaySound("fist/brutalmodeswing", 5)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		DNBT C 1 offset(0,78) A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		DNBT C 1 offset(0,45) A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		DNBT C 1 A_ZoomFactor(0.95)
+		DNBT D 4 A_CustomPunch(12,0,0,"FistPuff")
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT C 1 A_ZoomFactor(0.96)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT C 1 offset(0,32) A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT C 1 offset(0,45) A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT C 1 offset(0,64) A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNBT C 1 offset(0,96) A_ZoomFactor(1.00)
+		TNT1 A 4
+		TNT1 A 1 A_SetSpeed(1.0)
+		Goto RealReady
+	}
+}
+
+ACTOR LXandroChaingunCannon : Weapon 26392
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 20
+	Weapon.AmmoType "Clip"
+	Inventory.PickupMessage "You got the chaingun cannon! Now it's time to kick some ass!"
+	Obituary "%k has kicked %o's ass with ripper chaingun"
+	States
+	{
+	Ready:
+		DNCG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		DNCG AA 0 A_Lower
+		DNCG A 1 A_Lower
+		Loop
+	Select:
+		DNCG AA 0 A_Raise
+		DNCG A 1 A_Raise
+		Loop
+	Fire:
+		DNCG A 0 A_Jump(255, "Fire1", "Fire2", "Fire3", "Fire4")
+	Fire1:
+		DNCG A 0 A_PlaySound("DNCHNGFR", CHAN_WEAPON)
+		DNCG B 2 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_Recoil(0.3)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.995)
+		DNCG C 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.99)
+		DNCG I 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG J 1 
+		TNT1 A 0 A_ZoomFactor(1.00)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG A 1 A_ReFire
+		Goto Ready
+	Fire2:
+		DNCG A 0 A_PlaySound("DNCHNGFR", CHAN_WEAPON)
+		DNCG D 2 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_Recoil(0.3)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.995)
+		DNCG C 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.99)
+		DNCG I 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG J 1 
+		TNT1 A 0 A_ZoomFactor(1.00)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG A 1 A_ReFire
+		Goto Ready
+	Fire3:
+		DNCG A 0 A_PlaySound("DNCHNGFR", CHAN_WEAPON)
+		DNCG E 2 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 A 0 A_Recoil(0.3)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.995)
+		DNCG C 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.99)
+		DNCG I 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG J 1 
+		TNT1 A 0 A_ZoomFactor(1.00)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG A 1 A_ReFire
+		Goto Ready
+	Fire4:
+		DNCG A 0 A_PlaySound("DNCHNGFR", CHAN_WEAPON)
+		DNCG E 2 A_FireBullets(5.6, 0, 1, 5, "BulletPuff")
+		TNT1 G 0 A_Recoil(0.3)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.995)
+		DNCG C 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		TNT1 A 0 A_ZoomFactor(0.99)
+		DNCG I 1 
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG J 1 
+		TNT1 A 0 A_ZoomFactor(1.00)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNCG A 1 A_ReFire
+		Goto Ready
+	EndFire:
+		DNCG A 0 A_ReFire
+		DNCG HIJK 1
+		Goto Ready
+	Spawn:
+		DNCG Z -1
+		Stop
+	}
+}
+
+ACTOR LXandroDevastator : Weapon 26393
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 20
+	Weapon.AmmoType "Clip"
+	Inventory.PickupMessage "You got the devastator, now it's time to kick some ass!"
+	Obituary "%o couldn't evade %k rocket."
+	weapon.kickback 60
+	attacksound "DNDEVAFR"
+	states
+	{
+	Spawn:
+		DNDV Z -1
+		Stop
+	Ready:
+		DNDV A 1 A_WeaponReady 
+		loop
+	Select:
+		DNDV AA 0 A_Raise
+		DNDV A 1 A_Raise
+		Goto Ready
+	DeSelect:
+		DNDV AA 0 A_Lower
+		DNDV A 1 A_Lower
+		Loop
+	Fire:
+		DNDV A 0 A_JumpIfInventory ("LXDVChoosing",1,"RightGunShot")
+		DNDV B 2
+		DNDV C 2
+		TNT1 A 0 A_Recoil(5)
+		DNDV D 2 bright A_FireCustomMissile ("Rocket",0,0,8,10,1)
+		TNT1 A 0 Radius_Quake (3,4,0,1,0)
+		DNDV C 2
+		DNDV B 2
+		DNDV A 4 A_GiveInventory ("LXDVChoosing",1)
+		Goto Ready
+	RightGunShot:
+		DNDV E 2
+		DNDV F 2
+		TNT1 A 0 A_Recoil(5)
+		DNDV G 2 bright A_FireCustomMissile ("Rocket",0,0,-8,10,1)
+		TNT1 A 0 Radius_Quake (3,4,0,1,0)
+		DNDV F 2
+		DNDV E 2
+		DNDV A 4 A_TakeInventory ("LXDVChoosing",1)
+		Goto Ready
+	}
+}
+actor LXDVChoosing : Inventory
+{
+	inventory.amount 1
+	inventory.maxamount 1
+	states
+	{
+	Spawn:
+		TNT1 A -1
+		stop
+	}
+}
+
+ACTOR LXandroPistol : Weapon 26394
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Weapon.AmmoType "clip"
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 50
+	Weapon.AmmoType2 "LXandroPistolClipHolder"
+	Weapon.AmmoUse2 0
+	Weapon.AmmoGive2 12
+	AttackSound "DNPISTFR"
+	decal BulletChip
+	Inventory.Pickupmessage "You got the Pistol!"
+	Obituary "%o was shot up by %k's Pistol."
+	Inventory.PickupSound "DSPISTIN"
+	+NOALERT
+	+AMMO_OPTIONAL
+	Scale .5
+	States
+	{
+	Spawn:
+		DNPS Z -1
+		stop
+	Ready:
+		DNP1 A 1 A_WeaponReady
+		loop
+	Select:
+		TNT1 AA 0 A_Raise
+		DNP1 A 1 A_Raise
+		Loop
+	Deselect:
+		TNT1 AA 0 A_Lower
+		DNP1 A 1 A_Lower
+		Loop
+	Fire:
+		DNP1 A 0 A_JumpIfNoAmmo("Reload")
+		DNP1 A 0 A_JumpIfInventory("LXandroPistolClipHolder",1,"Bang")
+		Goto Click
+	Bang:
+		DNP1 A 0 A_AlertMonsters
+		DNP1 A 0 A_TakeInventory("LXandroPistolClipHolder", 1)
+		DNP1 B 0 A_FireBullets(5.6,5.6,1,12,"BulletPuff")
+		DNP1 B 1 BRIGHT A_GunFlash // A_Light1
+		TNT1 A 0 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-1.5)
+		DNP1 B 1 BRIGHT A_GunFlash // A_Light1
+		TNT1 A 0 A_SetPitch(Pitch-1.5)
+		TNT1 A 0 A_ZoomFactor(0.98)
+		DNP1 C 1 // A_Light0
+		TNT1 A 0 A_SetPitch(Pitch+0.5)
+		TNT1 A 0 A_ZoomFactor(0.99)
+		DNP1 C 1 // A_Light0
+	    TNT1 A 0 A_SetPitch(Pitch+0.5)
+		TNT1 A 0 A_ZoomFactor(0.995)		
+        DNP1 A 1
+		TNT1 A 0 A_SetPitch(Pitch+0.5)
+		TNT1 A 0 A_ZoomFactor(1.00)
+        DNP1 A 2
+		DNP1 A 0 A_JumpIfNoAmmo(1)
+		Goto Ready
+		DNP1 A 0 A_TakeInventory("LXandroPistolClipHolder", 12)
+		Goto Ready
+    AltFire:
+	Reload:
+		DNP1 A 0 A_JumpIfInventory("LXandroPistolClipHolder",12,"ready")
+		DNP1 A 1 A_JumpIfInventory("Clip",1,"ReloadStart")
+		Goto Click
+	Click:
+		DNP1 A 1 A_WeaponReady(14)
+        goto Altfire
+	Hold:
+	AltHold:
+		DNP1 A 1 A_WeaponReady(14)
+		DNP1 A 0 A_ReFire
+		Goto ready
+	ReloadStart:
+		DNP1 H 2 A_Playsound("DNPISTR1")
+		DNP1 GF 4
+	ReloadLoop:
+		DNP1 E 0 A_JumpIfInventory("LXandroPistolClipHolder",12,"ReloadEnd")
+		DNP1 D 0 A_GiveInventory("LXandroPistolClipHolder", 1)
+		loop
+	ReloadEnd:
+		DNP1 A 1 offset(0,51) A_Playsound("DNPISTR2")
+		DNP1 A 1 offset(0,60)
+		DNP1 A 1 offset(0,66) 
+		DNP1 A 1 offset(0,72)
+		DNP1 A 1 offset(0,80)
+		DNP1 A 1 offset(0,96)
+		DNP1 F 2
+		DNP1 G 2
+		DNP1 HI 4
+		DNP1 A 1
+		DNP1 A 0 A_PlaySound("DNPISTR3")
+		goto Ready
+	Flash:
+		TNT1 A 1 A_Light(2)
+		TNT1 A 1 A_Light(5)
+		TNT1 A 1 A_Light(4)
+		TNT1 A 1 A_Light(3)
+		TNT1 A 1 A_Light(2)
+		TNT1 A 1 A_Light(0)
+		Stop
+	}
+}
+ACTOR LXandroPistolClipHolder : Ammo
+{
+  Inventory.MaxAmount 12
+  +INVENTORY.UNDROPPABLE
+  -inventory.invbar
+}
+
+ACTOR LXandroPistols : Weapon 26395
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Weapon.AmmoType "clip"
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 50
+	Weapon.AmmoType2 "LXandroPistolsClipHolder"
+	Weapon.AmmoUse2 0
+	Weapon.AmmoGive2 12
+	AttackSound "DNPISTFR"
+	decal BulletChip
+	Inventory.Pickupmessage "Yeah, more guns means more ass kicking!"
+	Obituary "%o was shot up by %k's Pistols."
+	Inventory.PickupSound "DSPISTIN"
+	+NOALERT
+	+AMMO_OPTIONAL
+	Scale .5
+	States
+	{
+	Spawn:
+		DNPS Z -1
+		stop
+	Ready:
+		DNP2 A 1 A_WeaponReady
+		loop
+	Select:
+		DNP2 AA 0 A_Raise
+		DNP2 A 1 A_Raise
+		Loop
+	Deselect:
+		DNP2 AA 0 A_Lower
+		DNP2 A 1 A_Lower
+		Loop
+	Fire:
+		DNP2 A 0 A_JumpIfNoAmmo("AltFire")
+		DNP2 A 0 A_JumpIfInventory("LXandroPistolsClipHolder",1,"Bang")
+		Goto Click
+	Bang:
+		DNP2 A 0 A_AlertMonsters
+		DNP2 A 0 A_TakeInventory("LXandroPistolsClipHolder", 1)
+		DNP2 B 1 A_FireBullets(5.6,5.6,1,12,"BulletPuff")
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		DNP2 B 1 BRIGHT A_GunFlash // A_Light1
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		DNP2 C 1
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNP2 C 1
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNP2 A 0 A_TakeInventory("LXandroPistolsClipHolder", 1)
+		DNP2 D 1 A_FireBullets(5.6,5.6,1,12,"BulletPuff")
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNP2 D 1 BRIGHT A_GunFlash // A_Light1
+		TNT1 A 0 A_SetPitch(Pitch-1)
+		TNT1 A 0 A_SetRoll(Roll-1)
+		DNP2 E 1
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		DNP2 E 1
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		TNT1 A 0 A_SetRoll(Roll+1)
+		DNP2 A 0 A_JumpIfNoAmmo(1)
+		Goto Ready
+		DNP2 A 0 A_TakeInventory("LXandroPistolsClipHolder", 12)
+		Goto Ready
+    AltFire:
+	Reload:
+		DNP2 A 0 A_JumpIfInventory("LXandroPistolsClipHolder",12,"ready")
+		DNP2 A 1 A_JumpIfInventory("Clip",1,"ReloadStart")
+		Goto Click
+	Click:
+		DNP2 A 1 A_WeaponReady(14)
+        goto Altfire
+	Hold:
+	AltHold:
+		DNP2 A 1 A_WeaponReady(14)
+		DNP2 A 0 A_ReFire
+		Goto ready
+	ReloadStart:
+		DNP2 A 2 A_Playsound("DNPISTR1")
+		DNP2 A 2
+	ReloadLoop:
+		DNP2 E 0 A_JumpIfInventory("LXandroPistolsClipHolder",12,"ReloadEnd")
+		DNP2 E 0 A_GiveInventory("LXandroPistolsClipHolder", 1)
+		loop
+	ReloadEnd:
+		DNP2 A 1 offset(0,32)
+		DNP2 A 1 offset(0,51)
+		DNP2 A 1 offset(0,60) A_Playsound("DNPISTR1")
+		DNP2 A 1 offset(0,66)
+		DNP2 A 1 offset(0,72)
+		DNP2 A 1 offset(0,88)  
+		DNP2 A 1 offset(0,106)
+		TNT1 A 8 A_Playsound("DNPISTR2")
+		TNT1 A 1
+		DNP2 A 1 offset(0,95)
+		DNP2 A 1 offset(0,88) A_Playsound("DNPISTR3")
+		DNP2 A 1 offset(0,80)
+		DNP2 A 1 offset(0,72)
+		DNP2 A 1 offset(0,69)
+		DNP2 A 1 offset(0,63)
+		DNP2 A 1 offset(0,60) 
+		DNP2 A 1 offset(0,57)
+		DNP2 A 1 offset(0,51)
+		DNP2 A 1 offset(0,32) A_Playsound("DNPISTR3")
+		DNP2 A 4
+		goto Ready
+	Flash:
+		TNT1 A 1 A_Light(2)
+		TNT1 A 1 A_Light(5)
+		TNT1 A 1 A_Light(4)
+		TNT1 A 1 A_Light(3)
+		TNT1 A 1 A_Light(2)
+		TNT1 A 1 A_Light(0)
+		Stop
+	}
+}
+ACTOR LXandroPistolsClipHolder : Ammo
+{
+  Inventory.MaxAmount 12
+  +INVENTORY.UNDROPPABLE
+  -inventory.invbar
+}
+
+ACTOR LXandroRPG : Weapon 26396
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Inventory.PickupMessage "I like big guns and I cannot lie!"
+	Obituary "%o rode %k's rocket"  
+	Weapon.AmmoType "RocketAmmo" 
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 1
+	+WEAPON.NOAUTOFIRE
+	states
+	{
+	Ready:
+		DNRP A 1 A_WeaponReady 
+		loop
+	Deselect:
+		DNRP AA 0 A_Lower 
+		DNRP A 1 A_Lower 
+		loop 
+	Select:
+		DNRP AA 0 A_Raise
+		DNRP A 1 A_Raise
+		loop 
+	Fire: 
+		DNRP B 0 A_PlayWeaponSound("PLT027")
+		TNT1 A 0 A_Recoil(7)
+		DNRP B 1 A_FireCustomMissile("Rocket")
+		TNT1 A 0 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-3)
+		DNRP B 1
+		TNT1 A 0 A_ZoomFactor(0.94)
+		TNT1 A 0 A_SetPitch(Pitch-3)
+		DNRP C 1
+		TNT1 A 0 A_ZoomFactor(0.93)
+		TNT1 A 0 A_SetPitch(Pitch-2)
+		DNRP C 1
+		TNT1 A 0 A_ZoomFactor(0.94)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNRP A 1 
+		TNT1 A 0 A_ZoomFactor(0.97)
+		TNT1 A 0 A_SetPitch(Pitch+1) 
+		DNRP A 1 
+		TNT1 A 0 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNRP A 1 
+		TNT1 A 0 A_ZoomFactor(1.00)
+		DNRP A 1 
+		DNRP A 10 A_WeaponReady
+		Goto Ready
+	Flash:
+		TNT1 A 0 bright A_Light1
+		TNT1 A 0 bright A_Light0
+		stop
+	}
+}
+
+ACTOR LXandroShotgun : Weapon 26397
+{
+	//$Category Weapons
+	+WEAPON.CHEATNOTWEAPON
+	+INVENTORY.UNDROPPABLE
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 8
+	Weapon.AmmoType "Shell"
+	Inventory.PickupMessage "Come get some!"
+	Obituary "%k has kicked %o's ass with shotgun."
+	States
+	{
+	Ready:
+		DNSH C 1 A_WeaponReady
+		Loop
+	Deselect:
+		DNSH CC 0 A_Lower
+		DNSH C 1 A_Lower
+		Loop
+	Select:
+		DNSH CC 0 A_Raise
+		DNSH C 1 A_Raise
+		Loop
+	Fire:
+		DNSH C 1
+		DNSH C 0 A_FireBullets (5.6, 0, 7, 5, "BulletPuff")
+		TNT1 A 0 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-3)
+		DNSH C 0 A_PlaySound ("DNSHTGN", CHAN_WEAPON)
+		DNSH A 2
+		TNT1 A 0 A_ZoomFactor(0.98)
+		TNT1 A 0 A_SetPitch(Pitch-2)
+		DNSH B 2
+		TNT1 A 0 A_ZoomFactor(0.99)
+		TNT1 A 0 A_SetPitch(Pitch-2)
+	    DNSH C 2
+		TNT1 A 0 A_ZoomFactor(1.00)
+		TNT1 A 0 A_SetPitch(Pitch+1)
+	    DNSH C 2
+		TNT1 A 0 A_SetPitch(Pitch+1)
+		DNSH C 1 A_PlaySound ("DNSHPUMP",6)
+	    DNSH C 4
+		DNSH D 2
+		DNSH E 2
+		DNSH F 2
+		DNSH G 4
+		DNSH F 2
+		DNSH E 2
+		DNSH D 2
+	    DNSH C 4
+		DNSH C 2 A_ReFire
+		Goto Ready
+	Spawn:
+		DNSH Z -1
+		Stop
+	}
+}
