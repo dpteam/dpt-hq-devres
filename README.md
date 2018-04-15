@@ -1,2 +1,3 @@
-# dpt-hq-devres
-DPT.HQ Developer Resources Repository
+# DPT.HQ
+
+## Developer Resources
