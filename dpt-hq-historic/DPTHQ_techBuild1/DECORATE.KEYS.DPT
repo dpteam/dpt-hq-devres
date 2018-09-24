@@ -1,0 +1,116 @@
+ACTOR D3BlueCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a blue keycard."
+  Inventory.Icon "HUDKYBLU"
+  States
+  {
+  Spawn:
+    D3KB A 10
+    D3KB A 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3RedCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a red keycard."
+  Inventory.Icon "HUDKYRED"
+  States
+  {
+  Spawn:
+    D3KR A 10
+    D3KR A 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3YellowCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a yellow keycard."
+  Inventory.Icon "HUDKYYLW"
+  States
+  {
+  Spawn:
+    D3KY A 10
+    D3KY A 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3BlackCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a black keycard."
+  Inventory.Icon "HUDKYBLK"
+  States
+  {
+  Spawn:
+    D3KB B 10
+    D3KB B 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3GreenCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a green keycard."
+  Inventory.Icon "HUDKYGRN"
+  States
+  {
+  Spawn:
+    D3KG A 10
+    D3KG A 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3OrangeCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up an orange keycard."
+  Inventory.Icon "HUDKYORN"
+  States
+  {
+  Spawn:
+    D3KO A 10
+    D3KO A 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3WhiteCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a white keycard."
+  Inventory.Icon "HUDKYWIT"
+  States
+  {
+  Spawn:
+    D3KW A 10
+    D3KW A 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3BrownCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a brown keycard."
+  Inventory.Icon "HUDKYBWN"
+  States
+  {
+  Spawn:
+    D3KB C 10
+    D3KB C 10 Bright
+    Loop
+  }
+}
+
+ACTOR D3VioletCard : DoomKey
+{
+  Inventory.Pickupmessage "Picked up a violet keycard."
+  Inventory.Icon "HUDKYVLT"
+  States
+  {
+  Spawn:
+    D3KV A 10
+    D3KV A 10 Bright
+    Loop
+  }
+}

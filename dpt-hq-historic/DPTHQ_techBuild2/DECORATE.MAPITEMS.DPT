@@ -1,0 +1,15 @@
+Actor PDA : CustomInventory 29876
+{
+    Height 16
+    Radius 11
+    Inventory.PickupMessage "Saving..."
+    States
+    {
+        Spawn:
+            3PDA A -1
+            Stop
+        Pickup:
+            TNT1 A 0 AutoSave
+            Stop
+    }
+}

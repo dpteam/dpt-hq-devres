@@ -1,0 +1,58 @@
+
+gameinfo
+{
+}
+
+clearepisodes
+
+episode HQ1
+{
+	name = "Green Hill Zone"
+	key = "1"
+}
+
+clearskills
+
+skill Novice
+{
+	SpawnFilter = "baby"
+	textcolor = WHITE
+	Name = "Novice"
+}
+
+skill Apprentice
+{
+	SpawnFilter = "easy"
+	textcolor = WHITE
+	Name = "Apprentice"
+}
+
+skill Adept
+{
+	SpawnFilter = "normal"
+	textcolor = WHITE
+	Name = "Adept"
+}
+
+skill Expert
+{
+	SpawnFilter = "hard"
+	textcolor = WHITE
+	Name = "Expert"
+}
+
+skill Master
+{
+	SpawnFilter = "nightmare"
+	textcolor = WHITE
+	Name = "Master"
+}
+
+map HQ1 "ACT 1"
+{
+}
+
+map TITLEMAP "TITLE"
+{
+music = "TITLEMUS"
+}
